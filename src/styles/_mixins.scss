@@ -1,0 +1,238 @@
+// ============================================================
+// HOUSEVET – MIXINS Y UTILITIES
+// ============================================================
+@use 'variables' as v;
+
+// --- RESPONSIVE MIXINS ---
+@mixin mobile {
+  @media (max-width: #{v.$bp-mobile-hd}) { @content; }
+}
+@mixin mobile-hd {
+  @media (min-width: #{v.$bp-mobile-hd + 1}) and (max-width: #{v.$bp-tablet - 1}) { @content; }
+}
+@mixin tablet {
+  @media (max-width: #{v.$bp-tablet - 1}) { @content; }
+}
+@mixin tablet-up {
+  @media (min-width: #{v.$bp-tablet}) { @content; }
+}
+@mixin desktop {
+  @media (min-width: #{v.$bp-desktop}) { @content; }
+}
+@mixin desktop-hd {
+  @media (min-width: #{v.$bp-desktop-hd}) { @content; }
+}
+@mixin desktop-full {
+  @media (min-width: #{v.$bp-desktop-full}) { @content; }
+}
+
+// --- LAYOUT ---
+@mixin container {
+  width: 100%;
+  max-width: v.$container-max;
+  margin-inline: auto;
+  padding-inline: v.$container-pad;
+}
+
+@mixin section-padding {
+  padding-block: v.$sp-20;
+  @include tablet {
+    padding-block: v.$sp-16;
+  }
+  @include mobile {
+    padding-block: v.$sp-12;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+// --- CARDS ---
+@mixin card-base {
+  background: v.$color-white;
+  border-radius: v.$radius-lg;
+  box-shadow: v.$shadow-md;
+  border: 1px solid v.$color-border;
+  transition: v.$transition-base;
+  overflow: hidden;
+}
+
+@mixin card-hover {
+  &:hover {
+    box-shadow: v.$shadow-lg;
+    transform: translateY(-4px);
+  }
+}
+
+// --- BOTONES ---
+@mixin btn-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$sp-2;
+  padding: v.$sp-3 v.$sp-6;
+  border-radius: v.$radius-full;
+  font-size: v.$fs-base;
+  font-weight: v.$fw-semibold;
+  font-family: v.$font-family;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: v.$transition-base;
+  text-decoration: none;
+  white-space: nowrap;
+  line-height: 1.4;
+  
+  @include mobile {
+    width: 100%;
+    padding: v.$sp-4 v.$sp-6;
+  }
+}
+
+@mixin btn-primary {
+  @include btn-base;
+  background: v.$color-primary;
+  color: v.$color-white;
+  border-color: v.$color-primary;
+  
+  &:hover {
+    background: v.$color-primary-dark;
+    border-color: v.$color-primary-dark;
+    box-shadow: v.$shadow-primary;
+    transform: translateY(-1px);
+  }
+  &:active { transform: translateY(0); }
+}
+
+@mixin btn-secondary {
+  @include btn-base;
+  background: v.$color-secondary;
+  color: v.$color-white;
+  border-color: v.$color-secondary;
+  
+  &:hover {
+    background: v.$color-secondary-dark;
+    border-color: v.$color-secondary-dark;
+    box-shadow: v.$shadow-secondary;
+    transform: translateY(-1px);
+  }
+}
+
+@mixin btn-outline {
+  @include btn-base;
+  background: transparent;
+  color: v.$color-primary;
+  border-color: v.$color-primary;
+  
+  &:hover {
+    background: v.$color-primary;
+    color: v.$color-white;
+    transform: translateY(-1px);
+  }
+}
+
+@mixin btn-ghost-white {
+  @include btn-base;
+  background: rgba(255,255,255,0.15);
+  color: v.$color-white;
+  border-color: rgba(255,255,255,0.5);
+  backdrop-filter: blur(4px);
+  
+  &:hover {
+    background: rgba(255,255,255,0.25);
+    border-color: v.$color-white;
+  }
+}
+
+// --- SECTION HEADINGS ---
+@mixin section-header {
+  text-align: center;
+  margin-bottom: v.$sp-12;
+  
+  .section-label {
+    display: inline-block;
+    font-size: v.$fs-sm;
+    font-weight: v.$fw-semibold;
+    color: v.$color-secondary;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: v.$sp-3;
+  }
+  
+  h2 {
+    font-size: v.$fs-3xl;
+    font-weight: v.$fw-extrabold;
+    color: v.$color-text;
+    margin-bottom: v.$sp-4;
+    line-height: 1.2;
+    
+    @include tablet {
+      font-size: v.$fs-2xl;
+    }
+    @include mobile {
+      font-size: v.$fs-xl;
+    }
+  }
+  
+  p {
+    font-size: v.$fs-md;
+    color: v.$color-text-medium;
+    max-width: 600px;
+    margin-inline: auto;
+    line-height: 1.7;
+  }
+}
+
+// --- PLACEHOLDER IMAGE ---
+@mixin placeholder-img($bg: v.$color-primary-light, $num: '') {
+  background: $bg;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: v.$fs-sm;
+  font-weight: v.$fw-semibold;
+  color: v.$color-primary;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: $num;
+    font-size: v.$fs-3xl;
+    font-weight: v.$fw-extrabold;
+    opacity: 0.15;
+    position: absolute;
+  }
+}
+
+// --- ANIMATION IN ---
+@mixin animate-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  
+  &.animate-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// --- BADGE ---
+@mixin badge($bg, $color) {
+  display: inline-flex;
+  align-items: center;
+  gap: v.$sp-1;
+  padding: v.$sp-1 v.$sp-3;
+  background: $bg;
+  color: $color;
+  border-radius: v.$radius-full;
+  font-size: v.$fs-xs;
+  font-weight: v.$fw-semibold;
+}

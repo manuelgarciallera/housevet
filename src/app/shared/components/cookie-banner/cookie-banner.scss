@@ -1,0 +1,360 @@
+@use '../../../../styles/variables' as *;
+
+/* ===== BANNER PRINCIPAL ===== */
+.cookie-banner {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 900;
+  background: #1a2230;
+  color: $white;
+  border-radius: $radius-xl;
+  padding: 1.75rem 2rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35);
+  max-width: 900px;
+  width: calc(100% - 2rem);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  animation: slideUp 0.35s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+}
+
+.cookie-inner {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+
+  @media (max-width: $bp-tablet) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.cookie-icon {
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.cookie-text {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  flex: 1;
+
+  strong {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: rgba($white, 0.65);
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+
+.cookie-link {
+  color: #60a5fa;
+
+  &:hover {
+    color: $white;
+    text-decoration: underline;
+  }
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 0.625rem;
+  flex-wrap: wrap;
+  flex-shrink: 0;
+
+  @media (max-width: $bp-tablet) {
+    width: 100%;
+  }
+}
+
+/* ===== OVERLAY + PANEL ===== */
+.cookie-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(3px);
+  z-index: 9999;
+  transform: translateZ(0);
+  will-change: transform;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 1rem;
+
+  @media (min-width: $bp-tablet) {
+    align-items: center;
+  }
+
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.cookie-panel {
+  background: $white;
+  border-radius: $radius-2xl;
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  animation: panelUp 0.3s ease;
+}
+
+@keyframes panelUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.panel-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.75rem 1.75rem 1.25rem;
+  border-bottom: 1px solid $gray-100;
+}
+
+.panel-header-text {
+  display: flex;
+  gap: 0.875rem;
+  align-items: flex-start;
+
+  .cookie-icon {
+    margin-top: 2px;
+  }
+
+  h2 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: 0.375rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: $gray-500;
+    line-height: 1.55;
+    margin: 0;
+  }
+}
+
+.panel-close {
+  background: $gray-100;
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $gray-600;
+  flex-shrink: 0;
+  transition: background $transition-fast, color $transition-fast;
+
+  &:hover {
+    background: $gray-200;
+    color: $gray-900;
+  }
+}
+
+.panel-body {
+  padding: 0.5rem 0;
+}
+
+.cookie-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid $gray-100;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .cookie-row-info {
+    flex: 1;
+
+    strong {
+      display: block;
+      font-size: $text-sm;
+      font-weight: 700;
+      color: $gray-900;
+      margin-bottom: 0.25rem;
+    }
+
+    p {
+      font-size: 0.8rem;
+      color: $gray-500;
+      margin: 0;
+      line-height: 1.55;
+    }
+  }
+}
+
+/* Toggle switch */
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  flex-shrink: 0;
+
+  &--disabled {
+    cursor: default;
+  }
+
+  .toggle-label {
+    font-size: 0.75rem;
+    color: $gray-400;
+    white-space: nowrap;
+  }
+}
+
+.toggle-switch {
+  width: 44px;
+  height: 24px;
+  border-radius: 999px;
+  background: $gray-200;
+  position: relative;
+  transition: background 0.25s;
+  flex-shrink: 0;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: $white;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.25s;
+  }
+
+  &--on {
+    background: $blue-500;
+
+    &::after {
+      transform: translateX(20px);
+    }
+  }
+}
+
+/* Botones compartidos */
+.btn {
+  padding: 0.65rem 1.375rem;
+  border-radius: $radius-full;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all $transition-base;
+  white-space: nowrap;
+
+  &--config {
+    background: transparent;
+    color: rgba($white, 0.75);
+    border-color: rgba($white, 0.3);
+
+    &:hover {
+      color: $white;
+      border-color: rgba($white, 0.6);
+    }
+
+    .cookie-panel & {
+      background: $white;
+      color: $gray-700;
+      border-color: $gray-300;
+
+      &:hover {
+        border-color: $blue-500;
+        color: $blue-500;
+      }
+    }
+  }
+
+  &--essential {
+    background: $white;
+    color: $gray-900;
+    border-color: $gray-300;
+
+    &:hover {
+      background: $gray-50;
+      border-color: $gray-400;
+    }
+
+    .cookie-panel & {
+      background: $gray-100;
+      border-color: $gray-200;
+    }
+  }
+
+  &--accept {
+    background: $orange-500;
+    color: $white;
+    border-color: $orange-500;
+
+    &:hover {
+      background: $orange-700;
+    }
+  }
+}
+
+.panel-footer {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  padding: 1.25rem 1.75rem;
+  border-top: 1px solid $gray-100;
+  background: $gray-50;
+  border-radius: 0 0 $radius-2xl $radius-2xl;
+
+  @media (max-width: $bp-mobile) {
+    flex-direction: column;
+  }
+}
+
+.hidden {
+  display: none !important;
+}

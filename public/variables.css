@@ -1,0 +1,208 @@
+/* ============================================================
+   HOUSEVET — SISTEMA DE DISEÑO
+   Design Tokens & CSS Custom Properties
+   ============================================================ */
+
+:root {
+
+  /* ──────────────────────────────────────────
+     COLORES BASE (extraídos del logo)
+  ────────────────────────────────────────── */
+
+  /* Azul — Confianza / Acciones principales */
+  --blue-950:  #0a1e35;
+  --blue-900:  #0f2d50;
+  --blue-800:  #153d6e;
+  --blue-700:  #1a4d8c;
+  --blue-600:  #1f5fad;
+  --blue-500:  #2574cc;   /* ← Primario */
+  --blue-400:  #4d90e0;
+  --blue-300:  #7fb3ec;
+  --blue-200:  #b3d3f5;
+  --blue-100:  #daeaf9;
+  --blue-50:   #f0f6fd;
+
+  /* Naranja — Cercanía / Acentos / CTAs secundarios */
+  --orange-950: #3a1200;
+  --orange-900: #6b2200;
+  --orange-800: #9c3800;
+  --orange-700: #c94a00;
+  --orange-600: #e55a00;
+  --orange-500: #f06522;  /* ← Acento principal */
+  --orange-400: #f5813f;
+  --orange-300: #f9a06b;
+  --orange-200: #fcc19e;
+  --orange-100: #fde3d0;
+  --orange-50:  #fff5ef;
+
+  /* Neutros */
+  --gray-950:  #0d0f12;
+  --gray-900:  #181b20;
+  --gray-800:  #2b2f38;
+  --gray-700:  #3e4450;
+  --gray-600:  #545c6e;
+  --gray-500:  #6b7585;
+  --gray-400:  #8b96a5;
+  --gray-300:  #b0bac5;
+  --gray-200:  #cfd6de;
+  --gray-150:  #e2e8ed;
+  --gray-100:  #eef1f4;
+  --gray-50:   #f6f8fa;
+  --white:     #ffffff;
+
+  /* Semánticos */
+  --color-success:        #2e9e6b;
+  --color-success-light:  #e8f7f0;
+  --color-warning:        #f5a623;
+  --color-warning-light:  #fef7e8;
+  --color-error:          #e03e3e;
+  --color-error-light:    #fdeaea;
+
+  /* ──────────────────────────────────────────
+     COLORES FUNCIONALES
+  ────────────────────────────────────────── */
+
+  --color-primary:         var(--blue-500);
+  --color-primary-hover:   var(--blue-700);
+  --color-primary-light:   var(--blue-50);
+  --color-primary-dark:    var(--blue-800);
+
+  --color-accent:          var(--orange-500);
+  --color-accent-hover:    var(--orange-700);
+  --color-accent-light:    var(--orange-50);
+  --color-accent-dark:     var(--orange-800);
+
+  --color-text-primary:    var(--gray-900);
+  --color-text-secondary:  var(--gray-600);
+  --color-text-muted:      var(--gray-400);
+  --color-text-inverse:    var(--white);
+
+  --color-bg-primary:      var(--white);
+  --color-bg-secondary:    var(--gray-50);
+  --color-bg-tertiary:     var(--gray-100);
+  --color-bg-dark:         var(--blue-950);
+
+  --color-border:          var(--gray-150);
+  --color-border-strong:   var(--gray-200);
+
+  /* ──────────────────────────────────────────
+     TIPOGRAFÍA
+  ────────────────────────────────────────── */
+
+  --font-sans:   'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-serif:  'Georgia', serif;
+
+  /* Escala modular (ratio 1.25 – Major Third) */
+  --text-xs:    0.75rem;   /* 12px */
+  --text-sm:    0.875rem;  /* 14px */
+  --text-base:  1rem;      /* 16px */
+  --text-md:    1.125rem;  /* 18px */
+  --text-lg:    1.25rem;   /* 20px */
+  --text-xl:    1.5rem;    /* 24px */
+  --text-2xl:   1.875rem;  /* 30px */
+  --text-3xl:   2.25rem;   /* 36px */
+  --text-4xl:   3rem;      /* 48px */
+  --text-5xl:   3.75rem;   /* 60px */
+
+  --font-light:   300;
+  --font-regular: 400;
+  --font-medium:  500;
+  --font-semibold:600;
+  --font-bold:    700;
+  --font-black:   900;
+
+  --line-height-tight:   1.2;
+  --line-height-snug:    1.35;
+  --line-height-normal:  1.6;
+  --line-height-relaxed: 1.75;
+
+  --letter-spacing-tight: -0.02em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide:   0.05em;
+  --letter-spacing-wider:  0.1em;
+
+  /* ──────────────────────────────────────────
+     ESPACIADO (8pt system)
+  ────────────────────────────────────────── */
+
+  --space-1:   0.25rem;  /* 4px  */
+  --space-2:   0.5rem;   /* 8px  */
+  --space-3:   0.75rem;  /* 12px */
+  --space-4:   1rem;     /* 16px */
+  --space-5:   1.25rem;  /* 20px */
+  --space-6:   1.5rem;   /* 24px */
+  --space-8:   2rem;     /* 32px */
+  --space-10:  2.5rem;   /* 40px */
+  --space-12:  3rem;     /* 48px */
+  --space-16:  4rem;     /* 64px */
+  --space-20:  5rem;     /* 80px */
+  --space-24:  6rem;     /* 96px */
+  --space-32:  8rem;     /* 128px */
+
+  --section-padding-y: var(--space-24);
+  --section-padding-x: var(--space-6);
+
+  /* ──────────────────────────────────────────
+     LAYOUT & GRID
+  ────────────────────────────────────────── */
+
+  --container-max:     1280px;
+  --container-narrow:  800px;
+  --container-wide:    1440px;
+
+  /* ──────────────────────────────────────────
+     BORDES Y RADIOS
+  ────────────────────────────────────────── */
+
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-2xl:  24px;
+  --radius-full: 9999px;
+
+  /* ──────────────────────────────────────────
+     SOMBRAS
+  ────────────────────────────────────────── */
+
+  --shadow-xs:  0 1px 2px rgba(0,0,0,0.05);
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md:  0 4px 12px rgba(0,0,0,0.08), 0 2px 6px rgba(0,0,0,0.04);
+  --shadow-lg:  0 10px 30px rgba(0,0,0,0.10), 0 4px 12px rgba(0,0,0,0.05);
+  --shadow-xl:  0 20px 50px rgba(0,0,0,0.12), 0 8px 20px rgba(0,0,0,0.06);
+  --shadow-blue: 0 4px 20px rgba(37, 116, 204, 0.25);
+  --shadow-orange: 0 4px 20px rgba(240, 101, 34, 0.30);
+
+  /* ──────────────────────────────────────────
+     TRANSICIONES (consistentes globalmente)
+  ────────────────────────────────────────── */
+
+  --transition-fast:   0.15s ease;
+  --transition-base:   0.25s ease;
+  --transition-slow:   0.40s ease;
+  --transition-spring: 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* ──────────────────────────────────────────
+     Z-INDEX SCALE
+  ────────────────────────────────────────── */
+
+  --z-below:    -1;
+  --z-base:      0;
+  --z-raised:   10;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-toast:    500;
+
+  /* ──────────────────────────────────────────
+     IMÁGENES (sistema consistente)
+  ────────────────────────────────────────── */
+
+  --img-ratio-hero:     56.25%;  /* 16:9 */
+  --img-ratio-card:     66.67%;  /* 3:2  */
+  --img-ratio-square:   100%;    /* 1:1  */
+  --img-ratio-portrait: 133.33%; /* 3:4  */
+  --img-ratio-wide:     42.86%;  /* 21:9 */
+
+}

@@ -1,0 +1,54 @@
+<section class="section" id="precios">
+  <div class="container">
+    <header class="section-header" reveal="up">
+      <span class="section-tag">Tarifas</span>
+      <h2>Precios orientativos</h2>
+      <div class="divider"></div>
+      <p>Transparencia total. Conoce el coste aproximado antes de solicitar tu cita. Sin letras pequeñas.</p>
+    </header>
+    <div class="precios-grid">
+      <div class="precio-card" reveal="up" [revealDelay]="0">
+        <span class="precio-type">BÁSICO</span>
+        <h3>Consulta General</h3>
+        <div class="precio-amount"><span class="symbol">€</span><span class="number">50</span><span class="period">— por visita</span></div>
+        <ul class="precio-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Exploración física completa</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Diagnóstico y orientación</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Pauta de tratamiento</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Informe por escrito</li>
+        </ul>
+        <a routerLink="/contacto" fragment="cita" class="btn btn--outline">Solicitar cita</a>
+      </div>
+
+      <div class="precio-card precio-card--featured" reveal="up" [revealDelay]="120">
+        <div class="precio-badge">MÁS SOLICITADO</div>
+        <span class="precio-type">PREVENTIVO</span>
+        <h3>Vacunación + Revisión</h3>
+        <div class="precio-amount"><span class="symbol">€</span><span class="number">70</span><span class="period">— por visita</span></div>
+        <ul class="precio-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Todo el plan Básico</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Vacuna incluida (1 dosis)</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Desparasitación interna</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Actualización cartilla</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Seguimiento por WhatsApp</li>
+        </ul>
+        <a routerLink="/contacto" fragment="cita" class="btn btn--primary">Solicitar cita</a>
+      </div>
+
+      <div class="precio-card" reveal="up" [revealDelay]="240">
+        <span class="precio-type">DIAGNÓSTICO</span>
+        <h3>Analítica Completa</h3>
+        <div class="precio-amount"><span class="symbol">€</span><span class="number">90</span><span class="period">— desde</span></div>
+        <ul class="precio-features">
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Extracción de sangre</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Hemograma + bioquímica</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Resultados en 24h</li>
+          <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2e9e6b" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Interpretación incluida</li>
+        </ul>
+        <a routerLink="/contacto" fragment="cita" class="btn btn--outline">Solicitar cita</a>
+        <small class="precio-note">Precio final según análisis solicitados</small>
+      </div>
+    </div>
+    <p class="precios-disclaimer" reveal="fade">* Los precios son orientativos e incluyen el desplazamiento dentro de la zona de cobertura. Consulta tarifas exactas al solicitar cita.</p>
+  </div>
+</section>

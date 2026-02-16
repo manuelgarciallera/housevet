@@ -1,0 +1,92 @@
+@use '../../../styles/variables' as *;
+
+.servicios-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  h2 { margin: 0; }
+}
+
+.servicios-count { color: $gray-500; font-size: $text-sm; margin: 0; }
+
+.view-toggle {
+  display: flex;
+  gap: 0.25rem;
+  background: $gray-100;
+  padding: 0.25rem;
+  border-radius: $radius-md;
+  button {
+    display: flex; align-items: center; gap: 0.375rem;
+    padding: 0.375rem 0.875rem;
+    font-size: $text-sm; font-weight: 500;
+    color: $gray-600;
+    border-radius: calc(#{$radius-md} - 2px);
+    background: transparent;
+    border: none; cursor: pointer;
+    transition: all 0.2s;
+    &.active { background: $white; color: $blue-600; box-shadow: 0 1px 4px rgba(0,0,0,0.1); }
+    &:hover:not(.active) { color: $gray-800; }
+  }
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+  @media (max-width: 1024px) { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 640px) { grid-template-columns: 1fr; }
+
+  &--list {
+    grid-template-columns: 1fr;
+    .servicio-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      .servicio-card__icon { flex-shrink: 0; }
+      p { flex: 1; margin-bottom: 0; }
+    }
+  }
+}
+
+.servicio-card {
+  background: $white;
+  border: 1px solid $gray-150;
+  border-radius: $radius-lg;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+  &:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.1); transform: translateY(-2px); }
+
+  &__icon {
+    width: 48px; height: 48px;
+    border-radius: $radius-md;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+
+  h3 { font-size: $text-lg; font-weight: 700; color: $gray-900; margin: 0; }
+  p { font-size: $text-sm; color: $gray-600; line-height: 1.6; flex: 1; margin: 0; }
+
+  &__price {
+    display: flex; align-items: baseline; gap: 0.375rem;
+    .price-amount { font-size: 1.5rem; font-weight: 800; color: $blue-600; }
+    .price-note { font-size: $text-sm; color: $gray-500; }
+  }
+}
+
+.cta-banner {
+  background: linear-gradient(135deg, #1a4d8c 0%, #2574cc 100%);
+  padding: 5rem 0;
+  &__inner {
+    text-align: center;
+    color: $white;
+    max-width: 700px; margin: 0 auto;
+    h2 { font-size: clamp(1.5rem, 3vw, 2rem); color: $white; margin-bottom: 1rem; }
+    p { color: rgba(255,255,255,0.85); margin-bottom: 2rem; font-size: 1.0625rem; }
+  }
+  &__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+}

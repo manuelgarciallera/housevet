@@ -1,0 +1,79 @@
+<div class="page-hero">
+  <div class="container">
+    <nav class="breadcrumb"><a routerLink="/">Inicio</a> <span>›</span> Servicios</nav>
+    <div class="page-hero__tag">¿QUÉ HACEMOS?</div>
+    <h1>Nuestros Servicios Veterinarios</h1>
+    <p>Atención veterinaria completa a domicilio. Desde revisiones preventivas hasta diagnóstico avanzado.</p>
+  </div>
+  <div class="page-hero__wave">
+    <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:80px">
+      <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f6f8fa"/>
+    </svg>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="servicios-header">
+      <div>
+        <h2>Todos los servicios</h2>
+        <p class="servicios-count">{{ servicios.length }} servicios disponibles</p>
+      </div>
+      <div class="view-toggle">
+        <button [class.active]="view === 'grid'" (click)="view = 'grid'" aria-label="Vista tarjetas">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          Tarjetas
+        </button>
+        <button [class.active]="view === 'list'" (click)="view = 'list'" aria-label="Vista lista">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          Lista
+        </button>
+      </div>
+    </div>
+
+    <div class="servicios-grid" [class.servicios-grid--list]="view === 'list'">
+      @for (s of servicios; track s.title) {
+        <div class="servicio-card">
+          <div class="servicio-card__icon" [style.background]="s.bg">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" [attr.stroke]="s.color" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <g [innerHTML]="s.icon"></g>
+            </svg>
+          </div>
+          <h3>{{ s.title }}</h3>
+          <p>{{ s.desc }}</p>
+          @if (s.price) {
+            <div class="servicio-card__price">
+              <span class="price-amount">€{{ s.price }}</span>
+              <span class="price-note">{{ s.priceNote }}</span>
+            </div>
+          } @else {
+            <div class="servicio-card__price">
+              <span class="price-note">{{ s.priceNote }}</span>
+            </div>
+          }
+          @if (s.ctaClass === 'urgent') {
+            <a href="https://wa.me/34650440813" class="btn btn--whatsapp btn--full" target="_blank" rel="noopener">{{ s.cta }}</a>
+          } @else if (s.ctaClass === 'secondary') {
+            <a routerLink="/contacto" class="btn btn--outline btn--full">{{ s.cta }}</a>
+          } @else {
+            <a routerLink="/contacto" fragment="cita" class="btn btn--primary btn--full">{{ s.cta }}</a>
+          }
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- CTA banner -->
+<section class="cta-banner">
+  <div class="container">
+    <div class="cta-banner__inner">
+      <h2>¿Tienes dudas sobre qué servicio necesitas?</h2>
+      <p>Consúltanos sin compromiso. Te asesoramos y te ayudamos a elegir la mejor opción para tu mascota.</p>
+      <div class="cta-banner__actions">
+        <a routerLink="/contacto" fragment="cita" class="btn btn--accent btn--lg">Pedir Cita</a>
+        <a href="https://wa.me/34650440813" class="btn btn--outline-white btn--lg" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>

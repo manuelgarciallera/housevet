@@ -1,0 +1,88 @@
+<div *ngIf="visible">
+
+  <!-- BANNER -->
+  <div class="cookie-banner" [class.hidden]="showPanel" role="dialog">
+    <div class="cookie-inner">
+      <span class="cookie-icon">🍪</span>
+      <div class="cookie-text">
+        <strong>Usamos cookies</strong>
+        <p>Usamos cookies propias y de terceros para mejorar tu experiencia y analizar el tráfico. Puedes aceptar todas,
+          configurarlas o rechazar las no esenciales.</p>
+      </div>
+      <div class="cookie-actions">
+        <button class="btn btn--config" (click)="openPanel()">Configurar</button>
+        <button class="btn btn--essential" (click)="essentialOnly()">Solo esenciales</button>
+        <button class="btn btn--accept" (click)="acceptAll()">Aceptar todo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL -->
+  <div class="cookie-overlay" [class.hidden]="!showPanel" role="dialog">
+    <div class="cookie-panel">
+      <div class="panel-header">
+        <div class="panel-header-text">
+          <span class="cookie-icon">🍪</span>
+          <div>
+            <h2>Configuración de cookies</h2>
+            <p>Personaliza qué cookies aceptas. Las esenciales son siempre necesarias.</p>
+          </div>
+        </div>
+        <button class="panel-close" (click)="closePanel()">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
+      </div>
+      <div class="panel-body">
+        <div class="cookie-row">
+          <div class="cookie-row-info">
+            <strong>Cookies esenciales</strong>
+            <p>Necesarias para el funcionamiento básico. No se pueden desactivar.</p>
+          </div>
+          <div class="toggle toggle--disabled">
+            <span class="toggle-label">Siempre activas</span>
+            <div class="toggle-switch toggle-switch--on"></div>
+          </div>
+        </div>
+        <div class="cookie-row">
+          <div class="cookie-row-info">
+            <strong>Cookies analíticas</strong>
+            <p>Nos ayudan a entender cómo navegas por el sitio.</p>
+          </div>
+          <div class="toggle" (click)="prefs.analytics = !prefs.analytics" role="switch"
+            [attr.aria-checked]="prefs.analytics" tabindex="0">
+            <div class="toggle-switch" [class.toggle-switch--on]="prefs.analytics"></div>
+          </div>
+        </div>
+        <div class="cookie-row">
+          <div class="cookie-row-info">
+            <strong>Cookies funcionales</strong>
+            <p>Permiten recordar tus preferencias para mejorar tu experiencia.</p>
+          </div>
+          <div class="toggle" (click)="prefs.functional = !prefs.functional" role="switch"
+            [attr.aria-checked]="prefs.functional" tabindex="0">
+            <div class="toggle-switch" [class.toggle-switch--on]="prefs.functional"></div>
+          </div>
+        </div>
+        <div class="cookie-row">
+          <div class="cookie-row-info">
+            <strong>Cookies de marketing</strong>
+            <p>Usadas para mostrarte publicidad relevante en otras webs.</p>
+          </div>
+          <div class="toggle" (click)="prefs.marketing = !prefs.marketing" role="switch"
+            [attr.aria-checked]="prefs.marketing" tabindex="0">
+            <div class="toggle-switch" [class.toggle-switch--on]="prefs.marketing"></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel-footer">
+        <button class="btn btn--essential" (click)="essentialOnly()">Solo esenciales</button>
+        <button class="btn btn--config" (click)="savePrefs()">Guardar preferencias</button>
+        <button class="btn btn--accept" (click)="acceptAll()">Aceptar todo</button>
+      </div>
+    </div>
+  </div>
+
+</div>

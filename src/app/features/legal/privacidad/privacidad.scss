@@ -1,0 +1,82 @@
+@use '../../../../styles/variables' as *;
+
+.legal-hero {
+    background: linear-gradient(135deg, #0a1e35 0%, #1a4d8c 60%, #2574cc 100%);
+    padding: 6rem 0 3rem;
+    text-align: center;
+    color: $white;
+
+    h1 {
+        font-size: clamp(1.75rem, 4vw, 2.75rem);
+        font-weight: 900;
+        letter-spacing: -0.02em;
+        margin-bottom: 0.75rem;
+    }
+
+    p {
+        font-size: $text-sm;
+        color: rgba($white, 0.6);
+    }
+}
+
+.legal-body {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 6rem;
+
+    h2 {
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: $gray-900;
+        margin: 2.5rem 0 0.75rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid $orange-500;
+        display: inline-block;
+    }
+
+    p {
+        font-size: $text-base;
+        color: $gray-600;
+        line-height: 1.8;
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        margin: 0.5rem 0 1rem 1.25rem;
+
+        li {
+            font-size: $text-base;
+            color: $gray-600;
+            line-height: 1.8;
+            margin-bottom: 0.4rem;
+        }
+    }
+
+    a {
+        color: $blue-500;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    strong {
+        color: $gray-800;
+    }
+
+    .legal-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin-top: 3rem;
+        font-size: $text-sm;
+        font-weight: 600;
+        color: $blue-500;
+        text-decoration: none;
+
+        &:hover {
+            color: $blue-700;
+            text-decoration: underline;
+        }
+    }
+}

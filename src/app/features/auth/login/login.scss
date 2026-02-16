@@ -1,0 +1,129 @@
+@use '../../../../styles/variables' as v;
+@use '../../../../styles/mixins' as m;
+
+.login-page {
+  min-height: 100vh;
+  padding-top: 0 !important;
+
+  &__split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    @include m.tablet { grid-template-columns: 1fr; }
+  }
+
+  &__brand {
+    background: linear-gradient(135deg, v.$blue-600 0%, #0D3A6B 100%);
+    display: flex; align-items: center; justify-content: center;
+    padding: v.$sp-12;
+    @include m.tablet { display: none; }
+  }
+
+  &__brand-content {
+    max-width: 400px;
+    color: white;
+    h1 { font-size: v.$fs-3xl; font-weight: v.$fw-extrabold; margin: v.$sp-6 0 v.$sp-4; color: white; }
+    p { color: rgba(255,255,255,.75); margin-bottom: v.$sp-8; }
+  }
+
+  &__logo {
+    display: flex; align-items: center; gap: v.$sp-3;
+    span { font-size: v.$fs-xl; color: white; font-weight: 700; strong { color: v.$color-secondary; } }
+  }
+
+  &__benefits {
+    display: flex; flex-direction: column; gap: v.$sp-3;
+    li { font-size: v.$text-sm; color: rgba(255,255,255,.8); }
+  }
+
+  &__form-wrap {
+    display: flex; align-items: center; justify-content: center;
+    padding: v.$sp-8; background: v.$color-bg-light;
+  }
+}
+
+.login-card {
+  width: 100%; max-width: 440px;
+  background: white; border-radius: v.$radius-xl;
+  padding: v.$sp-10 v.$sp-8;
+  box-shadow: v.$shadow-xl;
+  border: 1px solid v.$color-border;
+  display: flex; flex-direction: column; gap: v.$sp-5;
+
+  &__title { font-size: v.$fs-2xl; font-weight: v.$fw-extrabold; color: v.$color-text; }
+  &__sub { font-size: v.$text-sm; color: v.$color-text-light; margin-top: calc(-1 * v.$sp-2); }
+
+  &__tabs {
+    display: flex; border: 1.5px solid v.$color-border;
+    border-radius: v.$radius-full; overflow: hidden;
+
+    button {
+      flex: 1; padding: v.$sp-2 v.$sp-3;
+      font-size: v.$text-sm; font-weight: 500;
+      color: v.$color-text-medium; cursor: pointer;
+      transition: v.$transition-fast;
+      font-family: v.$font-family;
+
+      &.active { background: v.$blue-600; color: white; }
+      &:hover:not(.active) { background: v.$color-bg-light; }
+    }
+  }
+
+  &__error {
+    background: v.$color-error-light; color: v.$color-error;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: v.$radius-md; padding: v.$sp-3 v.$sp-4;
+    font-size: v.$text-sm;
+  }
+
+  &__form {
+    display: flex; flex-direction: column; gap: v.$sp-4;
+
+    .btn-primary {
+      @include m.btn-primary;
+      width: 100%; justify-content: center; padding: v.$sp-4;
+      font-size: v.$fs-base;
+    }
+  }
+
+  &__forgot {
+    font-size: v.$text-xs; color: v.$blue-600; align-self: flex-end;
+    margin-top: calc(-1 * v.$sp-2);
+    &:hover { text-decoration: underline; }
+  }
+
+  &__register {
+    text-align: center; font-size: v.$text-sm; color: v.$color-text-medium;
+    a { color: v.$blue-600; font-weight: 600; &:hover { text-decoration: underline; } }
+  }
+
+  &__back {
+    text-align: center; font-size: v.$text-xs; color: v.$color-text-light;
+    display: block;
+    &:hover { color: v.$blue-600; }
+  }
+}
+
+.form-group {
+  display: flex; flex-direction: column; gap: v.$sp-2;
+  label { font-size: v.$text-sm; font-weight: 500; color: v.$color-text; }
+}
+
+.form-input {
+  padding: v.$sp-3 v.$sp-4;
+  border: 1.5px solid v.$color-border;
+  border-radius: v.$radius-md;
+  font-size: v.$fs-base;
+  font-family: v.$font-family;
+  color: v.$color-text;
+  background: v.$color-white;
+  transition: v.$transition-fast;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border-color: v.$blue-600;
+    box-shadow: 0 0 0 3px rgba(26,95,168,.12);
+  }
+  &::placeholder { color: v.$color-text-light; }
+}

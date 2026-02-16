@@ -1,0 +1,90 @@
+@use '../../../styles/variables' as *;
+
+.not-found {
+    min-height: calc(100vh - 72px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f7f9fb;
+    padding: 4rem 1.5rem;
+    text-align: center;
+}
+
+.not-found-inner {
+    max-width: 520px;
+}
+
+.not-found-code {
+    font-size: clamp(5rem, 18vw, 9rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    color: $blue-700;
+    margin-bottom: 0.25rem;
+
+    span {
+        color: $orange-500;
+    }
+}
+
+.not-found-dog {
+    margin: 1.5rem auto;
+    width: clamp(180px, 40vw, 260px);
+}
+
+.not-found-title {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    font-weight: 700;
+    color: $gray-900;
+    margin-bottom: 0.75rem;
+}
+
+.not-found-text {
+    font-size: $text-base;
+    color: $gray-500;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.not-found-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: $radius-full;
+    font-size: $text-sm;
+    font-weight: 600;
+    transition: all $transition-base;
+    border: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &--primary {
+        background: $blue-500;
+        color: $white;
+        border-color: $blue-500;
+
+        &:hover {
+            background: $blue-700;
+            border-color: $blue-700;
+        }
+    }
+
+    &--outline {
+        background: transparent;
+        color: $blue-500;
+        border-color: $blue-100;
+
+        &:hover {
+            background: $blue-50;
+            border-color: $blue-500;
+        }
+    }
+}

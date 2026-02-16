@@ -1,0 +1,359 @@
+@use '../../../../../styles/variables' as *;
+
+.hero {
+  background: linear-gradient(135deg, #0a1e35 0%, #1a4d8c 60%, #2574cc 100%);
+  padding: 5rem 0 17rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(37, 116, 204, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+
+  @media (max-width: $bp-tablet) {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: $text-sm;
+  font-weight: 500;
+  color: rgba($white, 0.7);
+  border: 1px solid rgba($white, 0.2);
+  border-radius: $radius-full;
+  padding: 0.4rem 0.875rem;
+  margin-bottom: 1.5rem;
+  background: rgba($white, 0.06);
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+}
+
+@keyframes pulse-dot {
+
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
+}
+
+.hero-title {
+  font-size: clamp(3rem, 5.5vw, 4.5rem);
+  font-weight: 900;
+  color: rgba($white, 0.9);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+
+  span {
+    color: $orange-400;
+  }
+}
+
+.hero-subtitle {
+  font-size: $text-md;
+  color: rgba($white, 0.7);
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  max-width: 480px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.hero-trust {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: $text-sm;
+  color: rgba($white, 0.65);
+
+  svg {
+    color: $color-success;
+    flex-shrink: 0;
+  }
+}
+
+.hero-image-wrapper {
+  position: relative;
+
+  @media (max-width: $bp-tablet) {
+    display: none;
+  }
+}
+
+.hero-image-card {
+  border-radius: $radius-2xl;
+  overflow: hidden;
+  background: linear-gradient(135deg, rgba($blue-500, 0.4) 0%, rgba($blue-700, 0.6) 100%);
+  aspect-ratio: 4/5;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.hero-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: $white;
+  border-radius: $radius-xl;
+  padding: 0.875rem 1.25rem;
+  box-shadow: $shadow-xl;
+
+  &--bottom-left {
+    bottom: -1.5rem;
+    left: -1.5rem;
+  }
+
+  &--top-right {
+    top: 1.5rem;
+    right: -1.5rem;
+  }
+
+  &__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: $radius-lg;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+
+    &--blue {
+      background: $blue-50;
+      color: $blue-500;
+    }
+
+    &--orange {
+      background: $orange-50;
+      color: $orange-500;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-size: $text-lg;
+      font-weight: 700;
+      color: $gray-900;
+      line-height: 1.2;
+    }
+
+    span {
+      font-size: $text-xs;
+      color: $gray-500;
+    }
+  }
+}
+
+.hero-wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+
+  svg {
+    display: block;
+    width: 100%;
+    height: 200px;
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: $radius-full;
+  font-size: $text-sm;
+  font-weight: 600;
+  transition: all $transition-base;
+  border: 2px solid transparent;
+  cursor: pointer;
+  white-space: nowrap;
+
+  &--lg {
+    padding: 1rem 2rem;
+    font-size: $text-base;
+  }
+
+  &--accent {
+    background: $orange-500;
+    color: $white;
+    border-color: $orange-500;
+
+    &:hover {
+      background: $orange-700;
+      transform: translateY(-2px);
+      box-shadow: $shadow-orange;
+    }
+  }
+
+  &--outline-white {
+    background: transparent;
+    color: $white;
+    border-color: rgba($white, 0.35);
+
+    &:hover {
+      border-color: $white;
+      background: rgba($white, 0.1);
+    }
+  }
+}
+
+// ===== DESKTOP NORMAL — portátil 15" (1101px – 1600px) =====
+@media (min-width: 1101px) and (max-width: 1600px) {
+  .hero {
+    padding: 6.3rem 0 9.3rem;
+    min-height: auto;
+    justify-content: center;
+  }
+
+  .hero-inner {
+    align-items: center;
+    gap: 3rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.25rem, 3.5vw, 3rem);
+    margin-bottom: 0.875rem;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-eyebrow {
+    margin-bottom: 0.875rem;
+  }
+
+  .hero-actions {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-image-card {
+    aspect-ratio: 4/3;
+  }
+
+  .hero-wave {
+    svg {
+      height: 90px;
+      margin-bottom: -2px;
+    }
+  }
+
+  .hero-badge {
+    padding: 0.625rem 1rem;
+
+    &__text strong {
+      font-size: 1rem;
+    }
+
+    &__icon {
+      width: 34px;
+      height: 34px;
+    }
+  }
+}
+
+// ===== DESKTOP HD — monitor 4K (1601px+) =====
+@media (min-width: 1601px) {
+  .hero {
+    padding: 5rem 0 12rem;
+    min-height: 100vh;
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: clamp(3.5rem, 5vw, 5rem);
+  }
+
+  .hero-image-card {
+    aspect-ratio: 4/5;
+  }
+
+  .hero-wave {
+    svg {
+      height: 200px;
+    }
+  }
+}
+
+// ===== TABLET INTERMEDIO =====
+@media (min-width: calc($bp-tablet + 1px)) and (max-width: 1100px) {
+  .hero {
+    padding: 4rem 0 10rem;
+  }
+
+  .hero-wave {
+    svg {
+      height: 100px;
+    }
+  }
+}
+
+// ===== MOBILE =====
+@media (max-width: $bp-tablet) {
+  .hero {
+    padding: 4rem 0 8rem;
+    min-height: auto;
+  }
+
+  .hero-wave {
+    svg {
+      height: 80px;
+    }
+  }
+}

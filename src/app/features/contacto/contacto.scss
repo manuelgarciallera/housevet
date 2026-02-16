@@ -1,0 +1,74 @@
+@use '../../../styles/variables' as *;
+
+.contact-cards-section { padding: 3rem 0 4rem; }
+
+.contact-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  @media (max-width: $bp-tablet) { grid-template-columns: 1fr; }
+}
+
+.contact-card {
+  background: $white; border-radius: $radius-xl; padding: 2rem;
+  border: 1px solid $gray-100; box-shadow: $shadow-sm; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+  span { font-size: $text-sm; font-weight: 600; color: $gray-700; }
+  small { font-size: $text-xs; color: $gray-400; }
+  &__icon {
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; margin-bottom: 0.5rem;
+    &--blue { background: $blue-50; color: $blue-500; }
+    &--green { background: #f0fdf4; color: #16a34a; }
+  }
+  &__value {
+    font-size: $text-lg; font-weight: 700;
+    &--blue { color: $blue-500; &:hover { color: $blue-700; } }
+    &--green { color: #16a34a; &:hover { color: #15803d; } }
+  }
+}
+
+.cita-form {
+  max-width: 760px; margin: 0 auto;
+  background: $white; border-radius: $radius-2xl; padding: 2.5rem;
+  box-shadow: $shadow-lg; border: 1px solid $gray-100;
+  display: flex; flex-direction: column; gap: 1.25rem;
+}
+
+.form-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;
+  @media (max-width: $bp-mobile) { grid-template-columns: 1fr; }
+}
+
+.form-group {
+  display: flex; flex-direction: column; gap: 0.4rem;
+  label { font-size: $text-sm; font-weight: 500; color: $gray-700; }
+  .required { color: $orange-500; }
+  input, select, textarea {
+    padding: 0.75rem 1rem; border: 1.5px solid $gray-150; border-radius: $radius-md;
+    font-size: $text-base; font-family: $font-sans; color: $gray-900; background: $white;
+    transition: border-color $transition-fast, box-shadow $transition-fast; width: 100%;
+    &:focus { outline: none; border-color: $blue-500; box-shadow: 0 0 0 3px rgba($blue-500, 0.1); }
+    &::placeholder { color: $gray-400; }
+  }
+  textarea { min-height: 110px; resize: vertical; }
+}
+
+.form-check {
+  display: flex; align-items: flex-start; gap: 0.75rem;
+  input { width: 18px; height: 18px; margin-top: 1px; flex-shrink: 0; accent-color: $blue-500; cursor: pointer; }
+  label { font-size: $text-sm; color: $gray-600; cursor: pointer; a { color: $blue-500; &:hover { text-decoration: underline; } } }
+}
+
+.btn--submit {
+  display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+  padding: 1rem; border-radius: $radius-full; background: $blue-500; color: $white;
+  font-size: $text-base; font-weight: 600; border: none; cursor: pointer;
+  transition: all $transition-base;
+  &:hover:not(:disabled) { background: $blue-700; transform: translateY(-1px); }
+  &:disabled { opacity: 0.7; cursor: not-allowed; }
+}
+
+.form-note {
+  text-align: center; font-size: $text-xs; color: $gray-400; margin: 0;
+}

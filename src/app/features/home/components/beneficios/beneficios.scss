@@ -1,0 +1,31 @@
+@use '../../../../../styles/variables' as *;
+
+.beneficios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  @media (max-width: $bp-desktop) { grid-template-columns: repeat(2,1fr); }
+  @media (max-width: $bp-mobile) { grid-template-columns: 1fr; }
+}
+
+.beneficio-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.75rem;
+  background: $white;
+  border: 1px solid $gray-150;
+  border-radius: $radius-xl;
+  transition: box-shadow $transition-base;
+  &:hover { box-shadow: $shadow-md; }
+
+  h3 { font-size: $text-base; font-weight: 700; color: $gray-900; margin-bottom: 0.4rem; }
+  p { font-size: $text-sm; color: $gray-600; line-height: 1.65; margin: 0; }
+}
+
+.beneficio-icon {
+  width: 44px; height: 44px;
+  border-radius: $radius-lg;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}

@@ -1,0 +1,30 @@
+<section class="section section--bg-alt" id="zonas">
+  <div class="container">
+    <div class="zonas-inner">
+      <div class="zonas-map" reveal="left">
+        <div class="map-placeholder">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#b0bac5" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Mapa de cobertura</span>
+          <small>Madrid y área metropolitana</small>
+        </div>
+      </div>
+      <div class="zonas-content" reveal="right">
+        <span class="section-tag">Dónde operamos</span>
+        <h2>¿Llegamos a tu zona?</h2>
+        <p>Cubrimos Madrid capital y los principales municipios del área metropolitana. Si no ves tu zona, consúltanos igualmente.</p>
+        <div class="zonas-list">
+          <div class="zona-col">
+            <div class="zona-item" *ngFor="let z of zonas1"><span class="zona-dot"></span>{{z}}</div>
+          </div>
+          <div class="zona-col">
+            <div class="zona-item" *ngFor="let z of zonas2"><span class="zona-dot"></span>{{z}}</div>
+          </div>
+        </div>
+        <div class="zonas-actions">
+          <a routerLink="/contacto" fragment="cita" class="btn btn--primary">Comprobar mi zona</a>
+          <a href="https://wa.me/34650440813" class="btn btn--whatsapp" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

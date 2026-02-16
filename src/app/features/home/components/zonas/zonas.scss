@@ -1,0 +1,71 @@
+@use '../../../../../styles/variables' as *;
+
+.zonas-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  @media (max-width: $bp-tablet) { grid-template-columns: 1fr; }
+}
+
+.zonas-map {
+  @media (max-width: $bp-tablet) { display: none; }
+}
+
+.map-placeholder {
+  background: $white;
+  border: 1.5px solid $gray-150;
+  border-radius: $radius-2xl;
+  aspect-ratio: 4/3;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: 0.5rem;
+  color: $gray-400;
+  span { font-size: $text-sm; font-weight: 500; }
+  small { font-size: $text-xs; color: $gray-300; }
+}
+
+.zonas-content {
+  .section-tag {
+    display: inline-block;
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: $orange-500; margin-bottom: 0.75rem;
+  }
+  h2 { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 700; color: $gray-900; margin-bottom: 1rem; letter-spacing: -0.02em; }
+  p { font-size: $text-base; color: $gray-600; margin-bottom: 1.75rem; line-height: 1.7; }
+}
+
+.zonas-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 2rem;
+  margin-bottom: 2rem;
+}
+
+.zona-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-size: $text-sm; color: $gray-700;
+  padding: 0.2rem 0;
+}
+
+.zona-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: $orange-500;
+  flex-shrink: 0;
+}
+
+.zonas-actions {
+  display: flex; gap: 0.875rem; flex-wrap: wrap;
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.5rem; border-radius: $radius-full;
+    font-size: $text-sm; font-weight: 600;
+    border: 2px solid transparent; transition: all $transition-base; cursor: pointer;
+    &--primary { background: $blue-500; color: $white; border-color: $blue-500;
+      &:hover { background: $blue-700; } }
+    &--whatsapp { background: #25D366; color: $white; border-color: #25D366;
+      &:hover { background: #1da851; } }
+  }
+}

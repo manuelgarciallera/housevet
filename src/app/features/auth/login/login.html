@@ -1,0 +1,82 @@
+<div class="login-page">
+  <div class="login-page__split">
+    <!-- Left: branding -->
+    <div class="login-page__brand">
+      <div class="login-page__brand-content">
+        <div class="login-page__logo">
+          <svg viewBox="0 0 40 40" width="48" height="48" fill="none">
+            <path d="M8 14C8 10.686 10.686 8 14 8s6 2.686 6 6-2.686 6-6 6-6-2.686-6-6Z" fill="#1A5FA8"/>
+            <path d="M22 8c0-2.209 1.791-4 4-4s4 1.791 4 4-1.791 4-4 4-4-1.791-4-4Z" fill="#F47C20"/>
+            <path d="M8 27C8 20.373 13.373 15 20 15s12 5.373 12 12v9H8v-9Z" fill="#1A5FA8"/>
+            <path d="M14 28c0-1.105.895-2 2-2h8c1.105 0 2 .895 2 2v8H14v-8Z" fill="#F47C20"/>
+          </svg>
+          <span>House<strong>Vet</strong></span>
+        </div>
+        <h1>Bienvenido a tu área privada</h1>
+        <p>Gestiona citas, historial clínico y el bienestar de tu mascota desde un solo lugar.</p>
+        <ul class="login-page__benefits">
+          <li>✓ Historial clínico digital de tu mascota</li>
+          <li>✓ Pedir y gestionar citas</li>
+          <li>✓ Recordatorios de vacunas</li>
+          <li>✓ Chat directo con tu veterinario</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Right: form -->
+    <div class="login-page__form-wrap">
+      <div class="login-card">
+        <h2 class="login-card__title">Iniciar sesión</h2>
+        <p class="login-card__sub">Selecciona tu perfil</p>
+
+        <div class="login-card__tabs">
+          <button
+            [class.active]="userType === 'cliente'"
+            (click)="userType = 'cliente'">Cliente</button>
+          <button
+            [class.active]="userType === 'veterinario'"
+            (click)="userType = 'veterinario'">Veterinario</button>
+          <button
+            [class.active]="userType === 'admin'"
+            (click)="userType = 'admin'">Admin</button>
+        </div>
+
+        @if (error) {
+          <div class="login-card__error">{{ error }}</div>
+        }
+
+        <form (ngSubmit)="onSubmit()" class="login-card__form">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              id="email" type="email" name="email"
+              [(ngModel)]="email" required
+              placeholder="tu@email.com"
+              class="form-input"
+            />
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input
+              id="password" type="password" name="password"
+              [(ngModel)]="password" required
+              placeholder="••••••••"
+              class="form-input"
+            />
+          </div>
+          <a routerLink="/recuperar-password" class="login-card__forgot">¿Olvidaste tu contraseña?</a>
+          <button type="submit" class="btn-primary" [disabled]="loading">
+            @if (loading) { <span>Entrando...</span> }
+            @else { <span>Entrar</span> }
+          </button>
+        </form>
+
+        <p class="login-card__register">
+          ¿No tienes cuenta?
+          <a routerLink="/registro">Créala gratis</a>
+        </p>
+        <a routerLink="/" class="login-card__back">← Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+</div>
