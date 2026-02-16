@@ -15,8 +15,8 @@ import { RouterLink } from '@angular/router';
         <p>Artículos sobre salud animal, cuidados y bienestar para tu mascota.</p>
       </div>
       <div class="page-hero__wave">
-        <svg viewBox="0 0 1440 80" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" style="display:block;width:100%;height:80px">
-          <path d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z" fill="#f6f8fa"/>
+        <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+          <path d="M0,0 Q720,120 1440,0 L1440,120 L0,120 Z" fill="#f6f8fa"/>
         </svg>
       </div>
     </div>
