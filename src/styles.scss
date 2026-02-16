@@ -70,9 +70,9 @@ button {
 
   .section-tag {
     display: inline-block;
-    font-size: $text-xs;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: $orange-500;
     margin-bottom: 0.75rem;
@@ -208,18 +208,19 @@ button {
   align-items: center;
   gap: 0.5rem;
   font-size: $text-sm;
-  color: rgba($white, 0.6);
+  color: rgba($white, 0.42); // página actual — gris apagado
   padding: 1.5rem 0;
 
   span {
-    color: rgba($white, 0.4);
+    color: rgba($white, 0.35); // separador ›
   }
 
   a {
-    color: rgba($white, 0.6);
+    color: rgba($white, 0.82); // páginas anteriores — bien visibles
+    transition: color $transition-fast;
 
     &:hover {
-      color: $white;
+      color: $blue-100; // hover azul claro
     }
   }
 }
@@ -234,9 +235,9 @@ button {
 
   &__tag {
     display: inline-block;
-    font-size: $text-xs;
-    font-weight: 600;
-    letter-spacing: 0.1em;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: $orange-400;
     margin-bottom: 1rem;
@@ -253,7 +254,7 @@ button {
   p {
     font-size: $text-md;
     color: rgba($white, 0.75);
-    max-width: 560px;
+    max-width: 720px;
     margin: 0 auto;
     line-height: 1.7;
   }
